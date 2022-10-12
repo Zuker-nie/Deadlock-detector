@@ -1,6 +1,4 @@
 README.txt
- Full Name: Zuker Nie Chen
- Course section: M
  Description of the program: FIFO And Banker's Algorithm to simulate a run-time of processes
  
 This program simulates the scheduling algorithm of both FIFO and Banker's algorithm based on a given input through a text file. 
@@ -16,7 +14,6 @@ One thing to note is that the blocked list only goes into abortion mode when the
 before it goes into a deadlock state which is another flag state I had to keep track of.
 The printing is a little bit weird because the outputs given to us have different spacing and different printings for different inputs. Like for example input-06, the output looks a lot
 weirder than output-01 because input-01 is a lot simpler. I based my output printing on the output-01 file which is why it might look weird for other inputs.
-I made sure all my running files can run on the RED servers so it should not have any issues.
 
 There were other issues like the cycle time and total run time not being added in while the tasks and activites were getting looped because some of the flags were not changed during special activites like blocked state or like deadlock state but then to realize that it can also release as a blocked state and so on. Essentially, there were a lot of intricacies that I had to learn and debug but C is a language hard to debug specially if we are trying to run it on a separate machine other than our own.
 
