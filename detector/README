@@ -1,0 +1,25 @@
+README.txt
+ Description of the program: FIFO And Banker's Algorithm to simulate a run-time of processes
+ 
+This program simulates the scheduling algorithm of both FIFO and Banker's algorithm based on a given input through a text file. 
+
+Assumptions:
+- Since this a simulation of a scheduling algorithm, we are to assume that 'release' activity may not release more than what it has originally. 
+
+For FIFO, my implementation is using a queue of activities so a good way to look at this is via an image attached in this same folder name: "queue of activities" which visualizes
+how I used queues for each task. So it creates a linkedlist for each task and each node of the linkedlist represents the activity that it is going to run during the cycles.
+For the deadlock states, it was a tough procedure to implement because there were a lot of iterations and states I had to keep track of like blocked lists which changes as things
+get added to the blocked list and things get removed.
+One thing to note is that the blocked list only goes into abortion mode when the amount of blocked items equals to the amount of tasks which tasks change because some can terminate
+before it goes into a deadlock state which is another flag state I had to keep track of.
+The printing is a little bit weird because the outputs given to us have different spacing and different printings for different inputs. Like for example input-06, the output looks a lot
+weirder than output-01 because input-01 is a lot simpler. I based my output printing on the output-01 file which is why it might look weird for other inputs.
+
+There were other issues like the cycle time and total run time not being added in while the tasks and activites were getting looped because some of the flags were not changed during special activites like blocked state or like deadlock state but then to realize that it can also release as a blocked state and so on. Essentially, there were a lot of intricacies that I had to learn and debug but C is a language hard to debug specially if we are trying to run it on a separate machine other than our own.
+
+For Banker's Algorithm, there was a mistake for output 8 because task 3 being able to request during cycle 9. There is an image attached in my folder with the title "Cycle 9 Output 8" where I did the calculations myself of the types of resources, 1, 2, and 3 and individually kept a track of each type of resource and which were available at which cycle. It was a lot simpler to implement than FIFO because of its safety state checker. I tried to align the outputs as best as I could based on the given outputs however, it was proven to be a difficult task due to numbers changing, spacing changing, and padding changign as well. It was also extra difficult to keep track because different outputs were given by different inputs so keeping track of variables given by two different algorithms was really tough.
+
+FIFO: Used queues to queue the task, and then activities struct to make the node of which contains pid, val1, val2, val3 and based on what type of comamnd it is, the vals meaning changes.
+BANKERS: same as fifo but used a safety checker equation to chekc if it is safe to request and to update the resources allocated for this task at this cycle. 
+Process.h represents attributes of each task.
+activity.h represents each node of the linkedlists of tasks and their activities. 
